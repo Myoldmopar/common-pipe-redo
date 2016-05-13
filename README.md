@@ -1,6 +1,9 @@
 Common Pipe Overhaul
 ====================
 
-![](http://common-pipe-redo.readthedocs.io/en/latest/?badge=latest)
+Overhauling common pipe
+
+## Documentation
+[![](https://readthedocs.org/projects/common-pip-redo/badge/?version=latest)](http://common-pipe-redo.readthedocs.io/en/latest/)
 
 Common Pipe Overhaul Repo
