@@ -104,6 +104,9 @@ def make_a_plant_model(conf)
 			profile.addToNode(secondary_pump.outletModelObject.get.to_Node.get())
 			profile_2.addToNode(secondary_pump_2.outletModelObject.get.to_Node.get())
 		end
+	else
+		pl.addDemandBranchForComponent(profile)
+		pl.addDemandBranchForComponent(profile_2)
 	end
 	
 	# now we have a few things to fine tune to make the idf runnable
