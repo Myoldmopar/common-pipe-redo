@@ -117,8 +117,6 @@ def make_a_plant_model(conf)
 	ddy_model = reverse_translator.translateWorkspace(ddy_workspace)
 	ddy_objects = ddy_model.getDesignDays().select { |d| d.name.get.include?('99.6%') }
 	m.addObjects([ddy_objects.first])
-	#ddy_objects_2 = ddy_model.getDesignDays().select { |d| d.name.get.include?('.4%') }
-	#m.addObjects(ddy_objects_2)
 	OpenStudio::Model::getSimulationControl(m).setRunSimulationforWeatherFileRunPeriods(false)
 	
 	# and add some interesting output variables too
