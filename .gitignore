@@ -1,3 +1,7 @@
+input_files/
+*.swp
+.DS_Store
+
 *.gem
 *.rbc
 /.config
