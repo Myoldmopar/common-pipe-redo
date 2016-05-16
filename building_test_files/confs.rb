@@ -109,3 +109,88 @@ mixed_pri_bran_no_sec_sequent = default_configuration.merge(
 	output_file_name: '../input_files/10-mixed_pri_bran_no_sec_sequent.osm'
 )
 make_a_plant_model(mixed_pri_bran_no_sec_sequent)
+
+const_pri_loop_const_sec_loop_uniform_onewaycommon = default_configuration.merge(
+	common_pipe_type: CommonPipeTypes::CommonPipe,
+	has_secondary_pump: true,
+	output_file_name: '../input_files/11-const_pri_loop_const_sec_loop_uniform_onewaycommon.osm'
+)
+make_a_plant_model(const_pri_loop_const_sec_loop_uniform_onewaycommon)
+
+const_pri_loop_varia_sec_loop_uniform_onewaycommon = default_configuration.merge(
+	common_pipe_type: CommonPipeTypes::CommonPipe,
+	has_secondary_pump: true,
+	secondary_pump_type: PumpTypes::VariableSpeed,
+	output_file_name: '../input_files/12-const_pri_loop_varia_sec_loop_uniform_onewaycommon.osm'
+)
+make_a_plant_model(const_pri_loop_varia_sec_loop_uniform_onewaycommon)
+
+const_pri_branch_const_sec_loop_uniform_onewaycommon = default_configuration.merge(
+	common_pipe_type: CommonPipeTypes::CommonPipe,
+	primary_pump_location: PumpPlacement::BranchPump,
+	primary_pump_vol_flow: 0.0009,
+	has_secondary_pump: true,
+	output_file_name: '../input_files/13-const_pri_branch_const_sec_loop_uniform_onewaycommon.osm'
+)
+make_a_plant_model(const_pri_branch_const_sec_loop_uniform_onewaycommon)
+
+const_pri_branch_const_sec_loop_sequent_onewaycommon = default_configuration.merge(
+	common_pipe_type: CommonPipeTypes::CommonPipe,
+	primary_pump_location: PumpPlacement::BranchPump,
+	primary_pump_vol_flow: 0.0009,
+	load_distribution: LoadDistribution::Sequential,
+	has_secondary_pump: true,
+	output_file_name: '../input_files/14-const_pri_branch_const_sec_loop_uniform_onewaycommon.osm'
+)
+make_a_plant_model(const_pri_branch_const_sec_loop_sequent_onewaycommon)
+
+var_pri_branch_const_sec_loop_uniform_onewaycommon = default_configuration.merge(
+	common_pipe_type: CommonPipeTypes::CommonPipe,
+	has_secondary_pump: true,
+	primary_pump_location: PumpPlacement::BranchPump,
+	primary_pump_vol_flow: 0.0009,
+	primary_pump_type: PumpTypes::VariableSpeed,
+	primary_pump_2_type: PumpTypes::VariableSpeed,
+	output_file_name: '../input_files/15-var_pri_branch_const_sec_loop_uniform_onewaycommon.osm'
+)
+make_a_plant_model(var_pri_branch_const_sec_loop_uniform_onewaycommon)
+
+var_pri_branch_const_sec_loop_sequent_onewaycommon = default_configuration.merge(
+	common_pipe_type: CommonPipeTypes::CommonPipe,
+	has_secondary_pump: true,
+	primary_pump_location: PumpPlacement::BranchPump,
+	primary_pump_vol_flow: 0.0009,
+	primary_pump_type: PumpTypes::VariableSpeed,
+	primary_pump_2_type: PumpTypes::VariableSpeed,
+	load_distribution: LoadDistribution::Sequential,
+	output_file_name: '../input_files/16-var_pri_branch_const_sec_loop_sequent_onewaycommon.osm'
+)
+make_a_plant_model(var_pri_branch_const_sec_loop_sequent_onewaycommon)
+
+mixed_pri_branch_const_sec_loop_uniform_onewaycommon = default_configuration.merge(
+	common_pipe_type: CommonPipeTypes::CommonPipe,
+	has_secondary_pump: true,
+	primary_pump_location: PumpPlacement::BranchPump,
+	primary_pump_vol_flow: 0.0009,
+	primary_pump_type: PumpTypes::ConstantSpeed,
+	primary_pump_2_type: PumpTypes::VariableSpeed,
+	output_file_name: '../input_files/17-mixed_pri_branch_const_sec_loop_uniform_onewaycommon.osm'
+)
+make_a_plant_model(mixed_pri_branch_const_sec_loop_uniform_onewaycommon)
+
+mixed_pri_branch_const_sec_loop_sequent_onewaycommon = default_configuration.merge(
+	common_pipe_type: CommonPipeTypes::CommonPipe,
+	has_secondary_pump: true,
+	primary_pump_location: PumpPlacement::BranchPump,
+	primary_pump_vol_flow: 0.0009,
+	primary_pump_type: PumpTypes::ConstantSpeed,
+	primary_pump_2_type: PumpTypes::VariableSpeed,
+	load_distribution: LoadDistribution::Sequential,
+	output_file_name: '../input_files/18-mixed_pri_branch_const_sec_loop_sequent_onewaycommon.osm'
+)
+make_a_plant_model(mixed_pri_branch_const_sec_loop_sequent_onewaycommon)
+
+
+
+
+
