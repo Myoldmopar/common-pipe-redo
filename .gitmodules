@@ -1,0 +1,3 @@
+[submodule "EnergyPlus"]
+	path = EnergyPlus
+	url = git@github.com:NREL/EnergyPlus
