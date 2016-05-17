@@ -13,4 +13,3 @@ I have a deliverable to do some form of overhaul of the common pipe simulation f
 
 I'll be documenting this project on [RTD](http://common-pipe-redo.readthedocs.io/en/latest/) for fun.  Right now it contains lots of information about the way I am creating test files.
 
-Common Pipe Overhaul Repo
