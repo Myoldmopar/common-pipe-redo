@@ -19,3 +19,8 @@ module PumpPlacement
 	BranchPump = 1
 end
 
+module ScheduleType
+	Constant      = 0
+	OnDuringDay   = 1
+	OnDuringNight = 2
+end

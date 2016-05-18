@@ -1,6 +1,28 @@
 require '/Applications/OpenStudio 1.11.0/Ruby/openstudio'
 require_relative 'enums.rb'
 
+def make_a_load_profile_schedule(model, peakval, profile_num, schedule_type)
+
+	sch_ruleset = OpenStudio::Model::ScheduleRuleset.new(model)
+	sch_ruleset.setName("Load Profile #{profile_num} Load Schedule")
+	week_day = sch_ruleset.defaultDaySchedule  
+	week_day.setName("Load Profile #{profile_num} Load Day Schedule")
+	case schedule_type
+	when ScheduleType::Constant
+		week_day.addValue(OpenStudio::Time.new(0, 24, 0, 0), peakval)
+	when ScheduleType::OnDuringDay
+		week_day.addValue(OpenStudio::Time.new(0, 8, 0, 0), 0)
+		week_day.addValue(OpenStudio::Time.new(0, 17, 0, 0), peakval)
+		week_day.addValue(OpenStudio::Time.new(0, 24, 0, 0), 0)
+	when ScheduleType::OnDuringNight
+		week_day.addValue(OpenStudio::Time.new(0, 8, 0, 0), peakval)
+		week_day.addValue(OpenStudio::Time.new(0, 17, 0, 0), 0)
+		week_day.addValue(OpenStudio::Time.new(0, 24, 0, 0), peakval)
+	end
+	return sch_ruleset
+
+end
+
 def make_a_plant_model(conf)
 	# the overall model
 	m = OpenStudio::Model::Model.new
@@ -75,16 +97,14 @@ def make_a_plant_model(conf)
 	end
 
 	# set up the load profile
-	load_sched = OpenStudio::Model::ScheduleConstant.new(m)
-	load_sched.setValue(conf[:load_profile_load])
+	load_sched = make_a_load_profile_schedule(m, conf[:load_profile_load], 1, ScheduleType::OnDuringDay) 
 	flow_sched = OpenStudio::Model::ScheduleConstant.new(m)
 	flow_sched.setValue(1)
 	profile = OpenStudio::Model::LoadProfilePlant.new(m)
 	profile.setPeakFlowRate(conf[:load_profile_vol_flow])
 	profile.setLoadSchedule(load_sched)
 	profile.setFlowRateFractionSchedule(flow_sched)
-	load_sched_2 = OpenStudio::Model::ScheduleConstant.new(m)
-	load_sched_2.setValue(conf[:load_profile_2_load])
+	load_sched_2 = make_a_load_profile_schedule(m, conf[:load_profile_2_load], 2, ScheduleType::OnDuringNight)
 	flow_sched_2 = OpenStudio::Model::ScheduleConstant.new(m)
 	flow_sched_2.setValue(1)
 	profile_2 = OpenStudio::Model::LoadProfilePlant.new(m)
