@@ -15,8 +15,8 @@ The base configuration is currently:
         primary_pump_2_type: PumpTypes::ConstantSpeed,
         primary_pump_2_vol_flow: 0.0009,
         common_pipe_type:  CommonPipeTypes::NoCommonPipe,
-        boiler_1_capacity: 3000,
-        boiler_2_capacity: 3000,
+        boiler_1_capacity: 5000,
+        boiler_2_capacity: 5000,
         has_secondary_pump: false,
         secondary_pump_type: PumpTypes::ConstantSpeed,
         secondary_pump_vol_flow: 0.002,
@@ -26,9 +26,11 @@ The base configuration is currently:
         load_distribution: LoadDistribution::Uniform,
         loop_setpoint_temp: 82,
         load_profile_vol_flow: 0.001,
-        load_profile_load: 2500,
+        load_profile_load: 4500,
+        load_profile_sched: ScheduleType::OnDuringDay,
         load_profile_2_vol_flow: 0.001,
-        load_profile_2_load: 2500,
+        load_profile_2_load: 4500,
+        load_profile_2_sched: ScheduleType::OnDuringAfternoon
         #output_file_name: '/tmp/testplantloop.osm'
     }
 
@@ -137,6 +139,17 @@ load_profile_load, load_profile_2_load
 --------------------------------------
 
 These define the heating demand that each load profile applies on the demand side of the loop.  Assign these as desired to match (or not match) the supply equipment capacity.
+
+load_profile_sched, load_profile_2_sched
+----------------------------------------
+
+These define the demand schedule for the load profile objects on the demand side of the loop.  There are five options in this enum module:
+
+* ``ScheduleType::Constant`` The peak value is used as the schedule value for the entire day.
+* ``ScheduleType::OnDuringDay`` The peak value is used as the schedule value during normal daytime hours (0800-1700), and the schedule is zero other hours.
+* ``ScheduleType::OnDuringNight`` The peak value is used as the schedule value during normal non-daytime hours (1700-0800), and the schedule is zero during daytime hours.
+* ``ScheduleType::OnDuringMorning`` The peak value is used as the schedule value during morning hours (0800-1200), and the schedule is zero the other hours.
+* ``ScheduleType::OnDuringAfternoon`` The peak value is used as the schedule value during afternoon hours (1200-1700), and the schedule is zero the other hours.
 
 output_file_name
 ----------------

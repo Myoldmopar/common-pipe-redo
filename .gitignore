@@ -2,6 +2,7 @@ input_files/
 *.swp
 .DS_Store
 docs/_build
+lib/_build
 
 *.gem
 *.rbc

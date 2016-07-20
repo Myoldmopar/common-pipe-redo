@@ -13,6 +13,7 @@ Contents:
 
    testing_configurations.rst
    generating_configs.rst
+   test_results.rst
 
-This project contains scripts, input data, output data, testing results, and anything else needed during the common pipe re-work for EnergyPlus.  
+This project contains scripts, input data, output data, testing results, and anything else needed during the common pipe re-work for EnergyPlus.
 
