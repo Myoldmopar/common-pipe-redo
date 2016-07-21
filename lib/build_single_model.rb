@@ -194,5 +194,6 @@ def make_a_plant_model(conf)
 
 	# grab some result
 	puts query_a_model(parent_folder, ['Boiler Heating Rate'], 40)
+	chart_a_column(parent_folder, ['BOILER HOT WATER 1:Boiler Mass Flow Rate'], 'massflowrate.png')
 end
 

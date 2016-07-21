@@ -1,7 +1,7 @@
 Common Pipe Overhaul
 ====================
 
-I have a deliverable to do some form of overhaul of the common pipe simulation for EnergyPlus plants.  This repo will contain lots of files related to this work.  My plan is to:
+There is a deliverable to do some form of overhaul of the common pipe simulation for EnergyPlus plants.  This repo will contain lots of files related to this work.  My plan is to:
 
 - Get some folks feedback on the existing model
 - Make up a ton of test files to evaluate what works and what doesn't
